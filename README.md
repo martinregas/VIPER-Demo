@@ -12,4 +12,4 @@ The app obtains the characters array from https://rickandmortyapi.com/ developed
 
 ### About
 
-Developed by Martin Regas (ARG) - August 2022.
+Developed by Martin Regas (ARG) - September 2022.
