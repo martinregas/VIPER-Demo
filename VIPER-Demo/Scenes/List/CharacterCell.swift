@@ -8,7 +8,7 @@
 import UIKit
 
 class CharacterCell: UICollectionViewCell {
-    private var imageView = UIImageView()
+    private var imageView = AsyncImageView()
         
     private var gradientView = UIView()
     
@@ -30,6 +30,11 @@ class CharacterCell: UICollectionViewCell {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         gradient.frame = gradientView.bounds
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView.cancel()
     }
 
     private func configureUI() {

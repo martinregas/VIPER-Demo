@@ -18,7 +18,7 @@ protocol DetailViewProtocol {
 class DetailViewController: UIViewController, DetailViewProtocol{
     var presenter: DetailPresenterProtocol?
     
-    private var imageView = UIImageView()
+    private var imageView = AsyncImageView()
     
     private var containerView = UIView()
     
