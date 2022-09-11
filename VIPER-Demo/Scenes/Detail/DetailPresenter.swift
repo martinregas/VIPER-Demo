@@ -15,6 +15,7 @@ protocol DetailPresenterProtocol {
     var character: Character? { get set }
     var location: Location? { get set }
     
+    func getCharacterLocation()
     func interactorDidFetchLocation(with result: Result<Location, Error>)
 }
 
@@ -22,12 +23,7 @@ class DetailPresenter: DetailPresenterProtocol {
     var router: DetailRouterProtocol?
     var view: DetailViewProtocol?
     
-    var interactor: DetailInteractorProtocol? {
-        didSet {
-            guard let url = character?.location.url else { return }
-            interactor?.getCharacterLocation(from: url)
-        }
-    }
+    var interactor: DetailInteractorProtocol?
     
     var location: Location?
     var character: Character?
@@ -40,5 +36,10 @@ class DetailPresenter: DetailPresenterProtocol {
         case .failure(let error):
             view?.update(with: error.localizedDescription)
         }
+    }
+    
+    func getCharacterLocation() {
+        guard let url = character?.location.url else { return }
+        interactor?.getCharacterLocation(from: url)
     }
 }
