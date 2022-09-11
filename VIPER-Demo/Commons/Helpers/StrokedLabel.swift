@@ -7,7 +7,12 @@
 
 import UIKit
 
-public class StrokedLabel: UILabel{
+public class StrokedLabel: UILabel{    
+    init(fontSize: CGFloat) {
+        super.init(frame: .zero)
+        font = .font(name: .primary, size: fontSize)
+    }
+    
     public override var intrinsicContentSize : CGSize {
         let size = super.intrinsicContentSize
         return CGSize(width: size.width, height: size.height + 20)
@@ -37,5 +42,9 @@ public class StrokedLabel: UILabel{
         self.textColor = .lightBlue
         self.shadowOffset = shadowOffset
         super.drawText(in:rect)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

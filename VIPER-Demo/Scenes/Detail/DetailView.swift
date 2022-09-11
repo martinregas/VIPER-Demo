@@ -31,9 +31,8 @@ class DetailViewController: UIViewController, DetailViewProtocol{
     private var imageTopConstraint:NSLayoutConstraint?
     
     private let nameLabel: StrokedLabel  = {
-        let label = StrokedLabel(frame: .zero)
+        let label = StrokedLabel(fontSize: 28)
         label.textAlignment = .center
-        label.font = .font(name: .primary, size: 28)
         label.numberOfLines = 3
         return label
     }()

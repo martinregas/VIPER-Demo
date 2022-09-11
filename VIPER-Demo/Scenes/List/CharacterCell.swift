@@ -15,10 +15,9 @@ class CharacterCell: UICollectionViewCell {
     private var gradient = CAGradientLayer()
     
     private let nameLabel: StrokedLabel  = {
-        let label = StrokedLabel(frame: .zero)
+        let label = StrokedLabel(fontSize: 20)
         label.textAlignment = .center
         label.numberOfLines = 3
-        label.font = .font(name: .primary, size: 20)
         return label
     }()
     
