@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ListPresenterProtocol {
+protocol ListPresenterProtocol: AnyObject {
     var router: ListRouterProtocol? { get set }
     var interactor: ListInteractorProtocol? { get set }
     var view: ListViewProtocol? { get set }
@@ -21,18 +21,18 @@ protocol ListPresenterProtocol {
 class ListPresenter: ListPresenterProtocol {
     var router: ListRouterProtocol?
     
-    var view: ListViewProtocol?
+    weak var view: ListViewProtocol?
+    
+    var interactor: ListInteractorProtocol? {
+        didSet {
+            interactor?.getCharacters()
+        }
+    }
     
     var characters: [Character] = []
     
     func willDisplay(_ index: Int) {
         if index == characters.count - 8 {
-            interactor?.getCharacters()
-        }
-    }
-    
-    var interactor: ListInteractorProtocol? {
-        didSet {
             interactor?.getCharacters()
         }
     }

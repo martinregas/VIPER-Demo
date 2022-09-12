@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol DetailViewProtocol {
+protocol DetailViewProtocol: AnyObject {
     var presenter: DetailPresenterProtocol? { get set }
     
     func update()

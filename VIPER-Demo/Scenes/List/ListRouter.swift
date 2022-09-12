@@ -26,9 +26,9 @@ class ListRouter: NSObject, ListRouterProtocol {
     static func start() -> ListRouterProtocol {
         let listRouter = ListRouter()
         
-        var view: ListViewProtocol = ListViewController()
-        var interactor: ListInteractorProtocol = ListInteractor()
-        var presenter: ListPresenterProtocol = ListPresenter()
+        let view: ListViewProtocol = ListViewController()
+        let interactor: ListInteractorProtocol = ListInteractor()
+        let presenter: ListPresenterProtocol = ListPresenter()
         
         view.presenter = presenter
         

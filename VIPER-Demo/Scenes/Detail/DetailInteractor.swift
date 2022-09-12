@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol DetailInteractorProtocol {
+protocol DetailInteractorProtocol: AnyObject {
     var presenter: DetailPresenterProtocol? { get set }
     
     func getCharacterLocation(from url: String)
 }
 
 class DetailInteractor: DetailInteractorProtocol {
-    var presenter: DetailPresenterProtocol?
+    weak var presenter: DetailPresenterProtocol?
     var service: LocationsService
     
-    init() {
-        service = LocationsService()
+    init(service: LocationsService = LocationsService()) {
+        self.service = service
     }
         
     func getCharacterLocation(from url: String) {

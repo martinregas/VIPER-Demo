@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol ListInteractorProtocol {
+protocol ListInteractorProtocol: AnyObject {
     var presenter: ListPresenterProtocol? { get set }
     
     func getCharacters()
 }
 
 class ListInteractor: ListInteractorProtocol {
-    var presenter: ListPresenterProtocol?
+    weak var presenter: ListPresenterProtocol?
     var service: CharactersService
     
-    init() {
-        service = CharactersService()
+    init(service: CharactersService = CharactersService()) {
+        self.service = service
     }
         
     func getCharacters() {

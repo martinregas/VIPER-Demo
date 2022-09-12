@@ -21,9 +21,9 @@ class DetailRouter: DetailRouterProtocol {
     static func start(with character: Character) -> DetailRouterProtocol {
         let detailRouter = DetailRouter()
         
-        var view: DetailViewProtocol = DetailViewController()
-        var presenter: DetailPresenterProtocol = DetailPresenter()
-        var interactor: DetailInteractorProtocol = DetailInteractor()
+        let view: DetailViewProtocol = DetailViewController()
+        let presenter: DetailPresenterProtocol = DetailPresenter()
+        let interactor: DetailInteractorProtocol = DetailInteractor()
 
         view.presenter = presenter
                 

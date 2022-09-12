@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ListViewProtocol {
+protocol ListViewProtocol: AnyObject {
     var presenter: ListPresenterProtocol? { get set }
     
     func update()
